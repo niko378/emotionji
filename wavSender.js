@@ -38,17 +38,17 @@ function sendDataText() {
 			alert(percentage)
 			alert(data)
 			if (data.indexOf("Joy") != 0) {
-				newUrl = "joy.html/perc=" +  percentage
+				newUrl = "results/joy.html/perc=" +  percentage
 			} else if (data.indexOf("Neutral") != 0) {
-				newUrl = "neutral.html/perc=" +  percentage
+				newUrl = "results/neutral.html/perc=" +  percentage
 			} else if (data.indexOf("Anger") != 0) {
-				newUrl = "anger.html/perc=" +  percentage
+				newUrl = "results/anger.html/perc=" +  percentage
 			} else if (data.indexOf("Surprise") != 0) {
-				newUrl = "surprise.html/perc=" +  percentage		
+				newUrl = "results/surprise.html/perc=" +  percentage		
 			} else if (data.indexOf("Fatigue") != 0) {
-				newUrl = "fatigue.html/perc=" +  percentage
+				newUrl = "results/fatigue.html/perc=" +  percentage
 			} else if (data.indexOf("Sad") != 0) {
-				newUrl = "sad.html/perc=" +  percentage
+				newUrl = "results/sad.html/perc=" +  percentage
 			} else {
 				newUrl = "UI.html";
 			}
