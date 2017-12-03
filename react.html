@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<title>emotionji - you're sad...</title>
+<title>emotionji - you're angry!</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -29,24 +29,23 @@ body, html {
 
 <!-- Header with full-height image -->
 <header class="bgimg-1 w3-grayscale-min" style = "text-align: center;" id="home">
-  <div class="w3-text-white" style="padding:48px">
-    <span class="w3-jumbo w3-hide-small"> emotionji says... </span><br>
-    <span class="w3-xxlarge w3-hide-large w3-hide-medium"> emotionji says... </span><br>
-    <span class="w3-large">your emotion is:</span><br>
-	<span class="w3-jumbo">😢</span><br>
-	<ul class="w3-ul w3-xlarge w3-white" style = "margin: 0% 30% 0% 30%">
-        <li class="w3-light-grey w3-xlarge w3-padding-small">You're not feeling well...</li>
-    </ul>
-	<div class="w3-center">
-    <span class="w3-large"><br>confidence:</span><br>
-     <div class="w3-center">
-      <div class="w3-grey">
-        <div class="w3-container w3-dark-grey w3-center" style="width:90%" id="percentage">90%</div>
-      </div>
+<div class="w3-text-white" style="padding:48px">
+   <span class="w3-jumbo w3-hide-small"> emotionji says... </span><br>
+   <span class="w3-xxlarge w3-hide-large w3-hide-medium"> emotionji says... </span><br>
+    <span class="w3-jumbo" id="emote">😊</span><br>
+    <ul class="w3-ul w3-xlarge w3-white" style = "margin: 0% 30% 0% 30%">
+       <li class="w3-light-grey w3-xlarge w3-padding-small" id="text">You're feeling positive!</li>
+   </ul>
+    <div class="w3-center">
+        <span class="w3-large"><br>confidence:</span><br>
+        <ul class="w3-ul w3-medium w3-light-grey" style = "margin: 0% 30% 0% 30%">
+            <li>
+                <div class="w3-blue-grey w3-center" style="width:90%" id="percentage">90%</div>
+            </li>
+        </ul>
     </div>
-    </div>
-    <p><a href="UI.html#test" class="w3-button w3-white w3-padding-large w3-large w3-margin-top w3-opacity w3-hover-opacity-off">Try again?</a></p>
-  </div> 
+</div>
+<a href="UI.html#test" class="w3-button w3-white w3-padding-large w3-large w3-margin-top w3-opacity w3-hover-opacity-off">Try again?</a>
 </header>
 <script> getParams()</script>
 </body>

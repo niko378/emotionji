@@ -29,23 +29,7 @@ function sendDataText() {
     jQuery.ajax({
         url: 'https://immense-lowlands-49222.herokuapp.com/yhackss17/1/' + document.getElementById("textToUpload").value,
 		success: function(data) {
-			var newUrl;
-			var percentage = parseFloat(data.slice(data.indexOf(" ")+1, data.indexOf(".")+3))*100.00
-			if (data.indexOf("Joy") != -1) {
-				newUrl = "results/joy.html?perc=" + percentage
-			} else if (data.indexOf("Neutral") != -1) {
-				newUrl = "results/neutral.html?perc=" + percentage
-			} else if (data.indexOf("Anger") != -1) {
-				newUrl = "results/anger.html?perc=" + percentage
-			} else if (data.indexOf("Surprise") != -1) {
-				newUrl = "results/surprise.html?perc=" + percentage
-			} else if (data.indexOf("Fatigue") != -1) {
-				newUrl = "results/fatigue.html?perc=" + percentage
-			} else if (data.indexOf("Sad") != -1) {
-				newUrl = "results/sad.html?perc=" + percentage
-			} else {
-				newUrl = "UI.html";
-			}
+			var newUrl = "react.html?" + data;
             document.location.href = newUrl;
         },
         error: function() {
