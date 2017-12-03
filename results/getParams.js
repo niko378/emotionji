@@ -1,13 +1,15 @@
 function getParams()
 {
-	if (jQuery.getUrlParams("perc") == null) 
+	var toParse = document.URL
+	if (toParse.indexOf("perc") == -1) 
 	{
 		alert("oops, something went wrong serverside");
 	} 
 	else 
 	{
-		var percentage = getUrlParams("perc") + "%";
-		document.getElementById("percentage").innerHtml = percentage;
-		document.getElementById("percentage").style = "width:" + percentage;
+		toParse = toParse.slice(toParse.lastIndexOf("=")+1, toParse.length)
+		var percentage = toParse + "%"
+		document.getElementById("percentage").innerHTML = percentage;
+		document.getElementById("percentage").style.width = percentage;
 	}
 }

@@ -3,7 +3,8 @@ function sendDataFile() {
 	var file = document.getElementById("uploadBtn").files[0]
 	if (file && file.name.lastIndexOf(".wav") == file.name.length-4) { 
 		var reader = new FileReader();
-		payload  = btoa(reader.readAsText(file))
+		payload  = btoa(reader.readAsBinaryString(file))
+		alert(payload)
 	}
 	if (payload != null) {
 		var text = "{\"type\":1," + 
@@ -25,30 +26,23 @@ function sendDataFile() {
 }
 
 function sendDataText() {
-	var text = "{\"type:\"0, " + 
-		"\"text\":\"" + document.getElementById("textToUpload").value + "\"}" ;
-	var obj = JSON.parse(text)
     jQuery.ajax({
         url: 'https://immense-lowlands-49222.herokuapp.com/yhackss17/1/' + document.getElementById("textToUpload").value,
-        dataType: 'json',
 		success: function(data) {
 			var newUrl;
-			var percentage = parseFloat(data.splice(data.indexOf(" ")+1, data.indexOf(".")+1))
-			percentage = percentage*100;
-			alert(percentage)
-			alert(data)
-			if (data.indexOf("Joy") != 0) {
-				newUrl = "results/joy.html/perc=" +  percentage
-			} else if (data.indexOf("Neutral") != 0) {
-				newUrl = "results/neutral.html/perc=" +  percentage
-			} else if (data.indexOf("Anger") != 0) {
-				newUrl = "results/anger.html/perc=" +  percentage
-			} else if (data.indexOf("Surprise") != 0) {
-				newUrl = "results/surprise.html/perc=" +  percentage		
-			} else if (data.indexOf("Fatigue") != 0) {
-				newUrl = "results/fatigue.html/perc=" +  percentage
-			} else if (data.indexOf("Sad") != 0) {
-				newUrl = "results/sad.html/perc=" +  percentage
+			var percentage = parseFloat(data.slice(data.indexOf(" ")+1, data.indexOf(".")+3))*100.00
+			if (data.indexOf("Joy") != -1) {
+				newUrl = "results/joy.html?perc=" + percentage
+			} else if (data.indexOf("Neutral") != -1) {
+				newUrl = "results/neutral.html?perc=" + percentage
+			} else if (data.indexOf("Anger") != -1) {
+				newUrl = "results/anger.html?perc=" + percentage
+			} else if (data.indexOf("Surprise") != -1) {
+				newUrl = "results/surprise.html?perc=" + percentage
+			} else if (data.indexOf("Fatigue") != -1) {
+				newUrl = "results/fatigue.html?perc=" + percentage
+			} else if (data.indexOf("Sad") != -1) {
+				newUrl = "results/sad.html?perc=" + percentage
 			} else {
 				newUrl = "UI.html";
 			}
@@ -56,6 +50,7 @@ function sendDataText() {
         },
         error: function() {
             alert('Error occured');
+			return false;
         }
     });
 }
